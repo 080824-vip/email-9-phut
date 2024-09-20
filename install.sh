@@ -1,6 +1,12 @@
 
 #!/bin/bash
 
+# Kiểm tra xem API token đã được cung cấp chưa
+if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+  echo "Vui lòng cung cấp API token của Cloudflare bằng cách đặt biến môi trường CLOUDFLARE_API_TOKEN."
+  exit 1
+fi
+
 # Cập nhật hệ thống và cài đặt Node.js và npm
 sudo apt update
 sudo apt install -y nodejs npm
@@ -8,8 +14,8 @@ sudo apt install -y nodejs npm
 # Cài đặt Cloudflare Wrangler
 npm install -g wrangler
 
-# Đăng nhập vào Cloudflare
-wrangler login
+# Đăng nhập vào Cloudflare bằng API token
+echo "api_token = \"$CLOUDFLARE_API_TOKEN\"" > ~/.wrangler/config/default.toml
 
 # Tải mã nguồn từ repository
 git clone https://github.com/gohcx/temporary-email-service.git temp-email-service
