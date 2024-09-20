@@ -4,6 +4,7 @@
 # Kiểm tra xem API token đã được cung cấp chưa
 if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
   echo "Vui lòng cung cấp API token của Cloudflare bằng cách đặt biến môi trường CLOUDFLARE_API_TOKEN."
+  echo "Ví dụ: export CLOUDFLARE_API_TOKEN=your_cloudflare_api_token"
   exit 1
 fi
 
