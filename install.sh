@@ -32,11 +32,10 @@ git clone https://github.com/gohcx/temporary-email-service.git temp-email-servic
 cd temp-email-service
 
 # Thêm domain tùy chỉnh vào tệp wrangler.toml
-cat <<EOT > wrangler.toml
-kv_namespaces = [{ binding = "kv4email", id = "xxxxxxxxxx" }]
-main = "src/worker.js"
-routes = [ { pattern = "chiase.sale", custom_domain = true }]
-EOT
+sed -i 's/\["anons.email"\]/\["chiase.sale"\]/' wrangler.toml
+sed -i 's/contact@anons.email/contact@chiase.sale/' wrangler.toml
+sed -i 's/abuse@anons.email/abuse@chiase.sale/' wrangler.toml
+sed -i 's/\["ct.anons.email"\]/\["ct.chiase.sale"\]/' wrangler.toml
 
 # Triển khai mã nguồn lên Cloudflare Workers
 wrangler deploy
