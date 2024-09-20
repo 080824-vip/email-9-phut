@@ -34,7 +34,7 @@ cd temp-email-service
 # Thêm domain tùy chỉnh vào tệp wrangler.toml
 cat <<EOT > wrangler.toml
 kv_namespaces = [{ binding = "kv4email", id = "xxxxxxxxxx" }]
-main = "src/index.js"
+main = "src/worker.js"
 routes = [ { pattern = "chiase.sale", custom_domain = true }]
 EOT
 
