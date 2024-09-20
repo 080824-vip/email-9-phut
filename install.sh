@@ -37,5 +37,11 @@ sed -i 's/contact@anons.email/contact@chiase.sale/' wrangler.toml
 sed -i 's/abuse@anons.email/abuse@chiase.sale/' wrangler.toml
 sed -i 's/\["ct.anons.email"\]/\["ct.chiase.sale"\]/' wrangler.toml
 
+# Kiểm tra xem tệp entry-point có tồn tại không
+if [ ! -f src/worker.js ]; then
+  echo "Tệp entry-point src/worker.js không tồn tại. Vui lòng kiểm tra lại."
+  exit 1
+fi
+
 # Triển khai mã nguồn lên Cloudflare Workers
 wrangler deploy
