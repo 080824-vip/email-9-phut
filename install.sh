@@ -12,6 +12,11 @@ fi
 sudo apt update
 sudo apt install -y nodejs npm
 
+# Kiểm tra và gỡ cài đặt Cloudflare Wrangler nếu đã cài đặt
+if npm list -g | grep -q wrangler; then
+  npm uninstall -g wrangler
+fi
+
 # Cài đặt Cloudflare Wrangler
 npm install -g wrangler
 
