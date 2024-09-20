@@ -1,0 +1,8 @@
+kv_namespaces = [{ binding = "kv4email", id = "xxxxxxxxxx" }]
+routes = [ { pattern = "yourdomain.com", custom_domain = true }]
+website_name = "Your Website Name"
+email_domain = [yourdomain.com]
+contact_email = "contact@yourdomain.com"
+abuse_email = "abuse@yourdomain.com"
+custom_email_domain = [ct.yourdomain.com]
+
